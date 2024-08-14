@@ -23,20 +23,20 @@ Your task is to create a Pokédex app with the following features:
 
 ### Tech Stack
 
-- **Frontend**: Ionic (React)
+- **Frontend**: Ionic (React) ✅
 - **Styling**: PandaCSS
 - **Data Management**: React Query
 - **Storage**: Browser storage for data persistence
 
 ### Deliverables
 
-1. **GitHub Repository**: Upload your code to a public GitHub repository.
+1. **GitHub Repository**: Upload your code to a public GitHub repository. ✅
 2. **Production URL**: Deploy your application and provide the URL for access.
 3. **README**: Include a README file with instructions on how to run the project locally.
 
 ### Instructions
 
-1. **Monorepo Structure**:
+1. **Monorepo Structure**: ✅
     - Create a monorepo with the following structure:
         
         ```
@@ -52,7 +52,7 @@ Your task is to create a Pokédex app with the following features:
     - Provide endpoints for authentication (sign-up, sign-in, sign-out) and CRUD operations.
     - Use the PokeApi ([https://pokeapi.co/](https://pokeapi.co/)) to obtain all necessary data.
 3. **Frontend**:
-    - Use Ionic (React) for the user interface.
+    - Use Ionic (React) for the user interface. ✅
     - Style the app using PandaCSS.
     - Implement data fetching and state management using React Query.
     - Ensure offline functionality.
