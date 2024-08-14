@@ -18,8 +18,8 @@ Your task is to create a Pokédex app with the following features:
 - **Authentication**: Include sign-up, sign-in, and sign-out functionalities. Ensure that users can only access their data.
 - **Offline Functionality**: Ensure the app is functional offline.
 - **Deployment**: Deploy the app to a production environment and provide a URL.
-- **Repository Structure**: Use a monorepo setup with at least two directories: "api" (backend) and "ui" (frontend).
-- **Programming Language**: Typescript
+- **Repository Structure**: Use a monorepo setup with at least two directories: "api" (backend) and "ui" (frontend). ✅
+- **Programming Language**: Typescript ✅
 
 ### Tech Stack
 
