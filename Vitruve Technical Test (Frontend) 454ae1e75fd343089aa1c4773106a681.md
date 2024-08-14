@@ -9,7 +9,7 @@ Welcome to the Vitruve technical test! This exercise is designed to evaluate you
 Your task is to create a Pokédex app with the following features:
 
 - **CRUD Operations**: The app should support:
-    - Listing all Pokémon
+    - Listing all Pokémon ✅
     - Searching for Pokémon
     - Viewing Pokémon details
     - Marking a Pokémon as a favorite
