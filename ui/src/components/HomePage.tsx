@@ -1,28 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import './HomePage.css';
+import React, { useEffect, useState } from "react";
+import "./HomePage.css";
+import Navbar from "../pages/NavBar/NavBar";
+import Favorites from "../pages/Favorites/Favorites";
 
-interface Pokemon {
-  name: string;
-  url: string;
-}
+// interface Pokemon {
+//   name: string;
+//   url: string;
+// }
 
-interface PokemonData {
-  sprites: {
-    front_default: string;
-  };
-}
+// interface PokemonData {
+//   sprites: {
+//     front_default: string;
+//   };
+// }
 
 const HomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [filteredPokemonList, setFilteredPokemonList] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [filter, setFilter] = useState<string>('');
+  const [filter, setFilter] = useState<string>("");
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [showFavorites, setShowFavorites] = useState(false);
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=1302')
-      .then(response => response.json())
-      .then(data => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1302")
+      .then((response) => response.json())
+      .then((data) => {
         setPokemonList(data.results);
         setFilteredPokemonList(data.results);
         setLoading(false);
@@ -33,12 +36,14 @@ const HomePage: React.FC = () => {
     const value = e.target.value.toLowerCase();
     setFilter(value);
     setFilteredPokemonList(
-      pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(value))
+      pokemonList.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(value)
+      )
     );
   };
 
   const toggleFavorite = (name: string) => {
-    setFavorites(prevFavorites => {
+    setFavorites((prevFavorites) => {
       const newFavorites = new Set(prevFavorites);
       if (newFavorites.has(name)) {
         newFavorites.delete(name);
@@ -49,15 +54,57 @@ const HomePage: React.FC = () => {
     });
   };
 
+  const seeFavoritesPokemon = () => {
+    // setShowFavorites(!showFavorites);
+
+    return <Favorites props = {favorites} />
+    // return (
+    //   <div className="pokemon-list">
+    //     {showFavorites
+    //       ? Array.from(favorites).map((favorite, index) => (
+    //           <PokemonItem
+    //             key={index}
+    //             name={favorite}
+    //             url={`https://pokeapi.co/api/v2/pokemon/${favorite}`}
+    //             isFavorite={true}
+    //             toggleFavorite={() => {}}
+    //           />
+    //         ))
+    //       : filteredPokemonList.map((pokemon, index) => (
+    //           <PokemonItem
+    //             key={index}
+    //             name={pokemon.name}
+    //             url={pokemon.url}
+    //             isFavorite={favorites.has(pokemon.name)}
+    //             toggleFavorite={() => {}}
+    //           />
+    //         ))}
+    //   </div>
+    // );
+  };
+
   return (
     <div className="HomePage">
-      <h1>Pokémon List</h1>
-      <input
-        type="text"
-        placeholder="Filter Pokémon"
-        value={filter}
-        onChange={handleFilterChange}
-      />
+      <Navbar />
+
+      <div>
+        <h1>Pokémon List</h1>
+        <input
+          type="text"
+          placeholder="Filter Pokémon"
+          value={filter}
+          onChange={handleFilterChange}
+        />
+
+        {favorites.size != 0 ? (
+          <>
+            <h3>See your favorites pokemon</h3>
+            <button style={{backgroundColor: 'tomato', width: '20px', height: '30px'}} onClick={() => seeFavoritesPokemon()}></button>
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -77,26 +124,33 @@ const HomePage: React.FC = () => {
   );
 };
 
-interface PokemonItemProps extends Pokemon {
-  isFavorite: boolean;
-  toggleFavorite: (name: string) => void;
-}
+// interface PokemonItemProps extends Pokemon {
+//   isFavorite: boolean;
+//   toggleFavorite: (name: string) => void;
+// }
 
-const PokemonItem: React.FC<PokemonItemProps> = ({ name, url, isFavorite, toggleFavorite }) => {
+const PokemonItem: React.FC<PokemonItemProps> = ({
+  name,
+  url,
+  isFavorite,
+  toggleFavorite,
+}) => {
   const [pokemonData, setPokemonData] = useState<PokemonData | null>(null);
 
   useEffect(() => {
     fetch(url)
-      .then(response => response.json())
-      .then(data => setPokemonData(data));
+      .then((response) => response.json())
+      .then((data) => setPokemonData(data));
   }, [url]);
 
   return (
     <div className="pokemon-item">
       <h2>{name}</h2>
-      {pokemonData && <img src={pokemonData.sprites.front_default} alt={name} />}
+      {pokemonData && (
+        <img src={pokemonData.sprites.front_default} alt={name} />
+      )}
       <button onClick={() => toggleFavorite(name)}>
-        {isFavorite ? 'Unfavorite' : 'Favorite'}
+        {isFavorite ? "Unfavorite" : "Favorite"}
       </button>
     </div>
   );

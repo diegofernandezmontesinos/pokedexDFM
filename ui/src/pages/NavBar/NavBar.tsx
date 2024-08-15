@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NavBar.css'; 
 
 const Navbar: React.FC = () => {
+  
   return (
     <nav className="navbar">
       <ul className="navbar-list">
         <li className="navbar-item"><a href="home">Inicio</a></li>
-        <li className="navbar-item"><a href="#about">Acerca de</a></li>
-        <li className="navbar-item"><a href="#services">Servicios</a></li>
+        <li className="navbar-item"><a href="favorites">Favoritos</a></li>
         <li className="navbar-item"><a href="Authentication">LogIn</a></li>
       </ul>
     </nav>

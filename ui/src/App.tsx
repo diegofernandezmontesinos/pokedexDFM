@@ -1,4 +1,4 @@
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Home from "./pages/Home";
@@ -29,11 +29,10 @@ import "@ionic/react/css/display.css";
 /* import '@ionic/react/css/palettes/dark.always.css'; */
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import "@ionic/react/css/palettes/dark.system.css";
-
-/* Theme variables */
 import "./theme/variables.css";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import AuthenticationPage from "./components/SignIn/SignIn";
+import Favorites from "./pages/Favorites/Favorites";
 
 setupIonicReact();
 
@@ -46,6 +45,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/home">
           <Home />
+        </Route>
+        <Route exact path="/favorites">
+           <Favorites /> 
         </Route>
         <Route exact path="/Authentication">
           <AuthenticationPage onSignIn={{
