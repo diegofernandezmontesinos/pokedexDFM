@@ -10,11 +10,11 @@ Your task is to create a Pokédex app with the following features:
 
 - **CRUD Operations**: The app should support:
     - Listing all Pokémon ✅
-    - Searching for Pokémon
+    - Searching for Pokémon ✅
     - Viewing Pokémon details
-    - Marking a Pokémon as a favorite
+    - Marking a Pokémon as a favorite ✅
     - Creating, reading, updating, and deleting custom Pokémon entries
-- **Extended Features**: Implement at least two of the following: pagination, virtualization, or filtering.
+- **Extended Features**: Implement at least two of the following: pagination, virtualization, or filtering(✅).
 - **Authentication**: Include sign-up, sign-in, and sign-out functionalities. Ensure that users can only access their data.
 - **Offline Functionality**: Ensure the app is functional offline.
 - **Deployment**: Deploy the app to a production environment and provide a URL.
