@@ -33,3 +33,5 @@ yarn-error.log*
 ## Panda
 styled-system
 styled-system-studio
+package-lock.json
+package.json

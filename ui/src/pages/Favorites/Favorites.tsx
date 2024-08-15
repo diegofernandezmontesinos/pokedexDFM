@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import Navbar from '../NavBar/NavBar'
 
-const Favorites: any = (favorites: any) => {
-    const [Favorites, setFavorites] = useState(favorites)
+const Favorites: any = () => {
   return (
+    <>
+    <Navbar />
     <div>Favorites</div>
+    </>
   )
 }
 

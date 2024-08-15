@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.23",
-    "axios": "^1.7.4"
+    "axios": "^1.7.4",
+    "react-router-dom": "^6.26.1"
   }
 }

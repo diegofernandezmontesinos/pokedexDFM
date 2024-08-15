@@ -47,13 +47,16 @@ const App: React.FC = () => (
           <Home />
         </Route>
         <Route exact path="/favorites">
-           <Favorites /> 
+          <Favorites />
         </Route>
         <Route exact path="/Authentication">
-          <AuthenticationPage onSignIn={{
-            username: "",
-            password: ""
-          }} onSignOut={false} />
+          <AuthenticationPage
+            onSignIn={{
+              username: "",
+              password: "",
+            }}
+            onSignOut={false}
+          />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

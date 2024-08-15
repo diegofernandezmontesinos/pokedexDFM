@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import Navbar from "../pages/NavBar/NavBar";
-import Favorites from "../pages/Favorites/Favorites";
-
-// interface Pokemon {
-//   name: string;
-//   url: string;
-// }
-
-// interface PokemonData {
-//   sprites: {
-//     front_default: string;
-//   };
-// }
 
 const HomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
@@ -54,39 +42,31 @@ const HomePage: React.FC = () => {
     });
   };
 
-  const seeFavoritesPokemon = () => {
-    // setShowFavorites(!showFavorites);
+  // const seeFavoritesPokemon = () => {
+  //   setShowFavorites(!showFavorites);
+  //   if (showFavorites) {
+  //     return (
+  //       <>
+  //         <div>prueba</div>
+  //       </>
+  //     );
+  //   } 
+  // };
 
-    return <Favorites props = {favorites} />
-    // return (
-    //   <div className="pokemon-list">
-    //     {showFavorites
-    //       ? Array.from(favorites).map((favorite, index) => (
-    //           <PokemonItem
-    //             key={index}
-    //             name={favorite}
-    //             url={`https://pokeapi.co/api/v2/pokemon/${favorite}`}
-    //             isFavorite={true}
-    //             toggleFavorite={() => {}}
-    //           />
-    //         ))
-    //       : filteredPokemonList.map((pokemon, index) => (
-    //           <PokemonItem
-    //             key={index}
-    //             name={pokemon.name}
-    //             url={pokemon.url}
-    //             isFavorite={favorites.has(pokemon.name)}
-    //             toggleFavorite={() => {}}
-    //           />
-    //         ))}
-    //   </div>
+  const seeFavoritesPokemon = (e: React.ChangeEvent<>) => {
+    //**********************************revisar esto, puede que aqui este la solución
+    // const value = e.target.value;
+    // setFilter(value);
+    // setPokemonList(
+    //   pokemonList.filter((pokemon) =>
+    //     pokemon.name.toLowerCase() == favorites.has(name)
+    //   )
     // );
   };
 
   return (
     <div className="HomePage">
       <Navbar />
-
       <div>
         <h1>Pokémon List</h1>
         <input
@@ -99,7 +79,14 @@ const HomePage: React.FC = () => {
         {favorites.size != 0 ? (
           <>
             <h3>See your favorites pokemon</h3>
-            <button style={{backgroundColor: 'tomato', width: '20px', height: '30px'}} onClick={() => seeFavoritesPokemon()}></button>
+            <button
+              style={{
+                backgroundColor: "tomato",
+                width: "20px",
+                height: "30px",
+              }}
+              onClick={() => seeFavoritesPokemon()}
+            ></button>
           </>
         ) : (
           <></>
@@ -123,11 +110,6 @@ const HomePage: React.FC = () => {
     </div>
   );
 };
-
-// interface PokemonItemProps extends Pokemon {
-//   isFavorite: boolean;
-//   toggleFavorite: (name: string) => void;
-// }
 
 const PokemonItem: React.FC<PokemonItemProps> = ({
   name,
