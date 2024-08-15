@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavBar.css'; // Asegúrate de crear este archivo CSS
+import './NavBar.css'; 
 
 const Navbar: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
         <li className="navbar-item"><a href="home">Inicio</a></li>
         <li className="navbar-item"><a href="#about">Acerca de</a></li>
         <li className="navbar-item"><a href="#services">Servicios</a></li>
-        <li className="navbar-item"><a href="#contact">Contacto</a></li>
+        <li className="navbar-item"><a href="Authentication">LogIn</a></li>
       </ul>
     </nav>
   );
