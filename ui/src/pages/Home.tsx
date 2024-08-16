@@ -9,8 +9,8 @@ const Home: React.FC = () => {
   const [user, setUser] = useState<string[]>([]);
   return (
     <>
-      <Navbar />
-      <IonPage className="center-content">
+      {user.length == 0 ? <Navbar /> : <></>}
+      <IonPage className={user.length == 0 ? "center-content" : "center-content-navbar" } >
         {user.length > 0 ? <HomePage /> : <LogIn setUser={setUser} />}
       </IonPage>
     </>
