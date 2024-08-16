@@ -26,7 +26,7 @@ Your task is to create a Pokédex app with the following features:
 - **Frontend**: Ionic (React) ✅
 - **Styling**: PandaCSS
 - **Data Management**: React Query
-- **Storage**: Browser storage for data persistence
+- **Storage**: Browser storage for data persistence✅
 
 ### Deliverables
 
