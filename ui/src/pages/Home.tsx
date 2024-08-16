@@ -1,19 +1,16 @@
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
-import HomePage from "../components/HomePage";
-import "./Home.css";
+import React, { useState } from "react";
+import { IonPage } from "@ionic/react";
+import LogIn from "../components/LogIn/LogIn";
 import Navbar from "./NavBar/NavBar";
+import HomePage from "../components/HomePage";
+
 
 const Home: React.FC = () => {
+  const [user, setUser] = useState<string[]>([]);
   return (
     <IonPage>
       <Navbar />
-      <HomePage />
+      {user.length > 0 ? <HomePage /> : <LogIn setUser={setUser} />}
     </IonPage>
   );
 };

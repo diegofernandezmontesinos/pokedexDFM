@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
   //   } 
   // };
 
-  const seeFavoritesPokemon = (e: React.ChangeEvent<>) => {
+  //const seeFavoritesPokemon = (e: React.ChangeEvent<>) => {
     //**********************************revisar esto, puede que aqui este la solución
     // const value = e.target.value;
     // setFilter(value);
@@ -62,7 +62,7 @@ const HomePage: React.FC = () => {
     //     pokemon.name.toLowerCase() == favorites.has(name)
     //   )
     // );
-  };
+  //};
 
   return (
     <div className="HomePage">
@@ -85,7 +85,7 @@ const HomePage: React.FC = () => {
                 width: "20px",
                 height: "30px",
               }}
-              onClick={() => seeFavoritesPokemon()}
+             // onClick={() => seeFavoritesPokemon()}
             ></button>
           </>
         ) : (

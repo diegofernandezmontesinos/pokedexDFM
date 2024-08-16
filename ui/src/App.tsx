@@ -30,9 +30,10 @@ import "@ionic/react/css/display.css";
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import "@ionic/react/css/palettes/dark.system.css";
 import "./theme/variables.css";
-import LandingPage from "./pages/LandingPage/LandingPage";
-import AuthenticationPage from "./components/SignIn/SignIn";
 import Favorites from "./pages/Favorites/Favorites";
+import LogIn from "./components/LogIn/LogIn";
+import HomePage from "./components/HomePage";
+
 
 setupIonicReact();
 
@@ -41,22 +42,13 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/">
-          <LandingPage />
+          <Home />
         </Route>
         <Route exact path="/home">
-          <Home />
+          <HomePage />
         </Route>
         <Route exact path="/favorites">
           <Favorites />
-        </Route>
-        <Route exact path="/Authentication">
-          <AuthenticationPage
-            onSignIn={{
-              username: "",
-              password: "",
-            }}
-            onSignOut={false}
-          />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
