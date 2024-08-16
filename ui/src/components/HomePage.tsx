@@ -50,18 +50,18 @@ const HomePage: React.FC = () => {
   //         <div>prueba</div>
   //       </>
   //     );
-  //   } 
+  //   }
   // };
 
   //const seeFavoritesPokemon = (e: React.ChangeEvent<>) => {
-    //**********************************revisar esto, puede que aqui este la solución
-    // const value = e.target.value;
-    // setFilter(value);
-    // setPokemonList(
-    //   pokemonList.filter((pokemon) =>
-    //     pokemon.name.toLowerCase() == favorites.has(name)
-    //   )
-    // );
+  //**********************************revisar esto, puede que aqui este la solución
+  // const value = e.target.value;
+  // setFilter(value);
+  // setPokemonList(
+  //   pokemonList.filter((pokemon) =>
+  //     pokemon.name.toLowerCase() == favorites.has(name)
+  //   )
+  // );
   //};
 
   return (
@@ -80,13 +80,12 @@ const HomePage: React.FC = () => {
           <>
             <h3>See your favorites pokemon</h3>
             <button
-              style={{
-                backgroundColor: "tomato",
-                width: "20px",
-                height: "30px",
-              }}
-             // onClick={() => seeFavoritesPokemon()}
-            ></button>
+              style={{ backgroundColor: "#007bff" }}
+              // onClick={() => seeFavoritesPokemon()}
+            >
+              {" "}
+              Clica aquí
+            </button>
           </>
         ) : (
           <></>
