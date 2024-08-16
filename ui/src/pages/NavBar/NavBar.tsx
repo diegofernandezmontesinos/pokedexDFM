@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './NavBar.css'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar: React.FC = () => {
   const [user, setUser] = useState<{ nombre: string; contraseña: string } | null>(null);
@@ -20,20 +22,24 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      <ul className="navbar-list">
-        <li className="navbar-item"><a href="home">Inicio</a></li>
-        <li className="navbar-item"><a href="favorites">Favoritos</a></li>
-        <li className="navbar-item logIn">
-          {user ? (
-            <>
-              <span>Bienvenido, {user.nombre}</span>
-              <button onClick={handleLogout}>Log Out</button>
-            </>
-          ) : (
-            <a href="/">LogIn</a>
-          )}
-        </li>
-      </ul>
+    <ul className="navbar-list">
+      <li className="navbar-item"><a href="home">Inicio</a></li>
+      <li className="navbar-item"><a href="favorites">Favoritos</a></li>
+      <li className="navbar-item logIn">
+        {user ? (
+          <>
+            <span>Bienvenido, {user.nombre}</span>
+            <button onClick={handleLogout}>
+              <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
+            </button>
+          </>
+        ) : (
+          <a href="/">
+            <FontAwesomeIcon icon={faSignInAlt} /> LogIn
+          </a>
+        )}
+      </li>
+    </ul>
     </nav>
   );
 };

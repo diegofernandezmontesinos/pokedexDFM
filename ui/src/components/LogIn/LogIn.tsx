@@ -21,7 +21,7 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
   // Validación de la contraseña
   const contraseñaRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,}$/;
   if (!contraseñaRegex.test(contraseña)) {
-    setError("La contraseña debe contener al menos una mayúscula y un número.");
+    setError("La contraseña debe contener al menos una mayúscula, al menos un número y una longitud mínima de 4.");
     return;
   }
     console.log("setUser:", setUser);
@@ -31,6 +31,10 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
 
     localStorage.setItem("user", JSON.stringify({ nombre, contraseña }));
     console.log("Usuario guardado en localStorage:", { nombre, contraseña });
+  };
+  const handleLogin = (user : string) => {
+    localStorage.setItem('user', JSON.stringify(user));
+    setUser([user]);
   };
 
   return (
@@ -49,7 +53,7 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
           onChange={(e) => setContraseña(e.target.value)}
           placeholder="Contraseña"
         />
-        <button>Iniciar sesión</button>
+        <button onClick={() => handleLogin(nombre)}>Iniciar sesión</button>
       </form>
       {error && <p>{error}</p>}
     </section>
