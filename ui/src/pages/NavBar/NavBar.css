@@ -1,31 +1,51 @@
 .navbar {
-    background-color: #333;
-    overflow: hidden;
-  }
-  
-  .navbar-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .navbar-item a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-  }
-  
-  .navbar-item a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+  background-color: #1a1a1a; /* Color de fondo oscuro */
+  padding: 10px 20px; /* Espaciado interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
 
-  .logIn {
-    display: flex;
-    flex-direction: column;
-  }
-  
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center; /* Alineación vertical */
+}
+
+.navbar-item a {
+  color: #fff; /* Color del texto */
+  text-align: center;
+  padding: 10px 15px; /* Espaciado interno */
+  text-decoration: none;
+  font-weight: 500; /* Grosor del texto */
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+}
+
+.navbar-item a:hover {
+  background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+  color: #333; /* Color del texto al pasar el ratón */
+}
+
+.logIn {
+  display: flex;
+  align-items: center; /* Alineación vertical */
+}
+
+.logIn span {
+  margin-right: 10px; /* Espaciado entre el texto y el botón */
+  color: #fff; /* Color del texto */
+}
+
+.logIn button {
+  background-color: #ff4b5c; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none;
+  padding: 8px 12px; /* Espaciado interno */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+.logIn button:hover {
+  background-color: #ff6b7c; /* Color de fondo al pasar el ratón */
+}
