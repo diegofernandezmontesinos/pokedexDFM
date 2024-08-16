@@ -23,4 +23,9 @@
     background-color: #ddd;
     color: black;
   }
+
+  .logIn {
+    display: flex;
+    flex-direction: column;
+  }
   
