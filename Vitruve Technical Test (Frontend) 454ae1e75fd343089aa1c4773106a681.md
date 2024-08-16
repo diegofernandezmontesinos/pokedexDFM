@@ -15,7 +15,7 @@ Your task is to create a Pokédex app with the following features:
     - Marking a Pokémon as a favorite ✅
     - Creating, reading, updating, and deleting custom Pokémon entries
 - **Extended Features**: Implement at least two of the following: pagination, virtualization, or filtering(✅).
-- **Authentication**: Include sign-up, sign-in, and sign-out functionalities. Ensure that users can only access their data.
+- **Authentication**: Include sign-up, sign-in, and sign-out functionalities. Ensure that users can only access their data.✅
 - **Offline Functionality**: Ensure the app is functional offline.
 - **Deployment**: Deploy the app to a production environment and provide a URL.
 - **Repository Structure**: Use a monorepo setup with at least two directories: "api" (backend) and "ui" (frontend). ✅
@@ -32,7 +32,7 @@ Your task is to create a Pokédex app with the following features:
 
 1. **GitHub Repository**: Upload your code to a public GitHub repository. ✅
 2. **Production URL**: Deploy your application and provide the URL for access.
-3. **README**: Include a README file with instructions on how to run the project locally.
+3. **README**: Include a README file with instructions on how to run the project locally.✅
 
 ### Instructions
 
@@ -57,7 +57,7 @@ Your task is to create a Pokédex app with the following features:
     - Implement data fetching and state management using React Query.
     - Ensure offline functionality.
 4. **Authentication**:
-    - Implement sign-up, sign-in, and sign-out functionalities.
+    - Implement sign-up, sign-in, and sign-out functionalities.✅
     - Ensure users can only view and manage their Pokémon entries.
 5. **Extended Features**:
     - Implement at least two additional features such as pagination, virtualization, or filtering.
