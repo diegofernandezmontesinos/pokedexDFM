@@ -48,9 +48,9 @@ Your task is to create a Pokédex app with the following features:
         
     - Ensure that both backend and frontend can be started independently.
 2. **Backend**:
-    - Implement a simple API using a class structure that persists data in browser storage.
-    - Provide endpoints for authentication (sign-up, sign-in, sign-out) and CRUD operations.
-    - Use the PokeApi ([https://pokeapi.co/](https://pokeapi.co/)) to obtain all necessary data.
+    - Implement a simple API using a class structure that persists data in browser storage.✅
+    - Provide endpoints for authentication (sign-up, sign-in, sign-out) and CRUD operations.✅
+    - Use the PokeApi ([https://pokeapi.co/](https://pokeapi.co/)) to obtain all necessary data. ✅
 3. **Frontend**:
     - Use Ionic (React) for the user interface. ✅
     - Style the app using PandaCSS.
