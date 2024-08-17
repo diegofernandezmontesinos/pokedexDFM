@@ -1,17 +1,21 @@
 import Navbar from "../NavBar/NavBar";
 import "./LandingPage.css";
 
-const LandingPage = () => {
-    
-    return (
-    <body>
-        <Navbar />
-      <div id="container">
-        Welcome to the Pokedex API 
-      </div>
-    </body>
 
-    );
-  };
-  
-  export default LandingPage;
+const LandingPage = () => {
+  return (
+    <div className="landing-page">
+      <Navbar />
+      <div id="image-container">
+        <img
+          src="../../images/images.jpeg"
+          alt="Pokemones y Masterball"
+          className="pokemon-image"
+        />
+      </div>
+      <div id="container">Welcome to the Pokedex API</div>
+    </div>
+  );
+};
+
+export default LandingPage;
