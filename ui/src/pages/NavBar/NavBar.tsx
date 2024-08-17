@@ -37,9 +37,11 @@ const Navbar: React.FC = () => {
         <li className="navbar-item">
           <a href="home">Inicio</a>
         </li>
-        <li className="navbar-item">
-          <a href="favorites">Favoritos</a>
-        </li>
+        {user && (
+          <li className="navbar-item">
+            <a href="favorites">Favoritos</a>
+          </li>
+        )}
         <li className="navbar-item logIn">
           {user ? (
             <>

@@ -13,7 +13,7 @@ const LandingPage = () => {
           className="pokemon-image"
         />
       </div>
-      <div id="container">Welcome to the Pokedex API</div>
+      <div id="container">Welcome to the Pokedex API DFM</div>
     </div>
   );
 };
