@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./LogIn.css";
+import { signIn } from "../../shares/apiService";
 
 interface LogInProps {
   setUser: React.Dispatch<React.SetStateAction<string[]>>;
@@ -32,9 +33,17 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
     localStorage.setItem("user", JSON.stringify({ nombre, contraseña }));
     console.log("Usuario guardado en localStorage:", { nombre, contraseña });
   };
-  const handleLogin = (user : string) => {
-    localStorage.setItem('user', JSON.stringify(user));
-    setUser([user]);
+  const handleLogin = async (user : string) => {
+    // localStorage.setItem('user', JSON.stringify(user));
+    // setUser([user]);
+    try {
+      const response = await signIn({ nombre, contraseña });
+      console.log('User signed in:', response);
+      setUser([user]);
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
+  
   };
 
   return (

@@ -34,6 +34,7 @@ import "./theme/variables.css";
 import Favorites from "./pages/Favorites/Favorites";
 import LogIn from "./components/LogIn/LogIn";
 import HomePage from "./components/HomePage";
+import LandingPage from "./pages/LandingPage/LandingPage";
 
 
 setupIonicReact();
@@ -45,9 +46,9 @@ const App: React.FC = () => (
         <Route exact path="/">
           <Home />
         </Route>
-        {/* <Route exact path="/home">
-          <HomePage />
-        </Route> */}
+        <Route exact path="/home">
+          <LandingPage />
+        </Route>
         <Route exact path="/favorites">
           <Favorites />
         </Route>
