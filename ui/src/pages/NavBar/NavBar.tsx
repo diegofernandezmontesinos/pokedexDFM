@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <ul className="navbar-list">
         <li className="navbar-item">
-          <a href="home">Home</a>
+          <a href="/home">Home</a>
         </li>
         {user && (
           <li className="navbar-item">
@@ -44,13 +44,13 @@ const Navbar: React.FC = () => {
             <>
               <span>Welcome, {user.nombre}</span>
               <button onClick={handleLogout}>
-                <a href="./home">
+                <a href="./">
                   <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
                 </a>
               </button>
             </>
           ) : (
-            <a href="/">
+            <a href="/home">
               <FontAwesomeIcon icon={faSignInAlt} /> LogIn
             </a>
           )}

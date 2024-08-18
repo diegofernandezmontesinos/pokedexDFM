@@ -32,9 +32,9 @@ import "@ionic/react/css/display.css";
 import "@ionic/react/css/palettes/dark.system.css";
 import "./theme/variables.css";
 import Favorites from "./pages/Favorites/Favorites";
-import LogIn from "./components/LogIn/LogIn";
-import HomePage from "./components/HomePage";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import LogIn from "./components/LogIn/LogIn";
+import { SetStateAction } from "react";
 
 
 setupIonicReact();
@@ -44,10 +44,15 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/">
-          <Home />
+          <LandingPage />
+        </Route>
+        <Route exact path="/login">
+          <LogIn setUser={function (value: SetStateAction<string[]>): void {
+            throw new Error("Function not implemented.");
+          } } />
         </Route>
         <Route exact path="/home">
-          <LandingPage />
+          <Home />
         </Route>
         <Route exact path="/favorites">
           <Favorites />

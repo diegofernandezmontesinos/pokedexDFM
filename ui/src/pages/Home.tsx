@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IonPage } from "@ionic/react";
 import LogIn from "../components/LogIn/LogIn";
 import Navbar from "./NavBar/NavBar";
@@ -7,6 +7,13 @@ import "./Home.css";
 
 const Home: React.FC = () => {
   const [user, setUser] = useState<string[]>([]);
+  const storedUser = localStorage.getItem("user");
+
+  useEffect(() => {
+    if(storedUser){
+      setUser([storedUser]);
+    }
+  }, [])
   return (
     <>
       {user.length == 0 ? <Navbar /> : <></>}
