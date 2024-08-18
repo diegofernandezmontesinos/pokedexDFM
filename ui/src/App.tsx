@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
-import '../../styled-system/styles.css'
+import "../../styled-system/styles.css";
 
 /* Basic CSS for apps built with Ionic */
 import "@ionic/react/css/normalize.css";
@@ -35,31 +35,37 @@ import Favorites from "./pages/Favorites/Favorites";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import LogIn from "./components/LogIn/LogIn";
 import { SetStateAction } from "react";
+import { QueryClient, QueryClientProvider } from 'react-query';
 
+const queryClient = new QueryClient();
 
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-        <Route exact path="/login">
-          <LogIn setUser={function (value: SetStateAction<string[]>): void {
-            throw new Error("Function not implemented.");
-          } } />
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/favorites">
-          <Favorites />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+  <QueryClientProvider client={queryClient}>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route exact path="/login">
+            <LogIn
+              setUser={function (value: SetStateAction<string[]>): void {
+                throw new Error("Function not implemented.");
+              }}
+            />
+          </Route>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/favorites">
+            <Favorites />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  </QueryClientProvider>
 );
 
 export default App;

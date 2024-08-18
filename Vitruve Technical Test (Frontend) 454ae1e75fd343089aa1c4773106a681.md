@@ -60,7 +60,7 @@ Your task is to create a Pokédex app with the following features:
     - Implement sign-up, sign-in, and sign-out functionalities.✅
     - Ensure users can only view and manage their Pokémon entries.
 5. **Extended Features**:
-    - Implement at least two additional features such as pagination, virtualization, or filtering.
+    - Implement at least two additional features such as pagination, virtualization, or filtering (✅).
 6. **Tests (Optional but Recommended)**:
     - Include tests to validate component and logic functionality.
     - Mention these tests in the README if included.
