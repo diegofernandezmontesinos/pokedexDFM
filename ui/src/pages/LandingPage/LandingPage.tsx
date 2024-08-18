@@ -7,7 +7,7 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <Navbar />
-      <div className="text-container">Welcome to you Pokedex App</div>
+      <div className="text-container">Welcome to your Pokedex App</div>
       <div id="image-container">
         <p>
           This is you Pokedex App, the place to search, found, and catch all
