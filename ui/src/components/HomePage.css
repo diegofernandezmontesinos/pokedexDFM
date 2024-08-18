@@ -18,6 +18,10 @@
   text-align: center;
 }
 
+.favorite{
+  padding: 0px !important;
+}
+
 .pokemon-item img {
   width: 100px;
   height: 100px;

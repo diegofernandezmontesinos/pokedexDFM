@@ -54,15 +54,15 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
           type="text"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
-          placeholder="Nombre de usuario"
+          placeholder="Username"
         />
         <input
           type="password"
           value={contraseña}
           onChange={(e) => setContraseña(e.target.value)}
-          placeholder="Contraseña"
+          placeholder="Password"
         />
-        <button onClick={() => handleLogin(nombre)}>Iniciar sesión</button>
+        <button onClick={() => handleLogin(nombre)}>Sign In</button>
       </form>
       {error && <p>{error}</p>}
     </section>

@@ -1,8 +1,7 @@
 import Navbar from "../NavBar/NavBar";
 import "./LandingPage.css";
 import pokeball from "../../images/images.jpeg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import pokeballIcon from "../../images/pokeball.png";
 
 const LandingPage = () => {
   return (
@@ -13,7 +12,7 @@ const LandingPage = () => {
         <p>
           This is you Pokedex App, the place to search, found, and catch all
           your pokemons, like Ash, if you wan't to be the very best, you have to
-          catch en all
+          catch en all.
         </p>
         <img
           src={pokeball}
@@ -22,12 +21,11 @@ const LandingPage = () => {
         />
       </div>
       <div className="button-container">
-        <p>To start, let's register</p>
+        <p>To start your adventure, let's register first:</p>
         <button>
-          <a href="./">
-            <FontAwesomeIcon icon={faSignOutAlt} /> Click to login
-          </a>
+          <a href="./">Click here to login</a>
         </button>
+        <img src={pokeballIcon} alt="Pokemones" className="pokeball-icon" />
       </div>
     </div>
   );

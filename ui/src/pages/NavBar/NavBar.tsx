@@ -11,7 +11,6 @@ const Navbar: React.FC = () => {
   } | null>(null);
 
   useEffect(() => {
-    // Recuperar datos del localStorage
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -19,8 +18,6 @@ const Navbar: React.FC = () => {
   }, []);
 
   const handleLogout = async () => {
-    // Limpiar localStorage y actualizar el estado del usuario
-    // localStorage.removeItem("user");
     try {
       const response = await signOut();
       console.log("User signed out:", response);
@@ -35,17 +32,17 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <ul className="navbar-list">
         <li className="navbar-item">
-          <a href="home">Inicio</a>
+          <a href="home">Home</a>
         </li>
         {user && (
           <li className="navbar-item">
-            <a href="favorites">Favoritos</a>
+            <a href="favorites">Favorites Pokemon</a>
           </li>
         )}
         <li className="navbar-item logIn">
           {user ? (
             <>
-              <span>Bienvenido, {user.nombre}</span>
+              <span>Welcome, {user.nombre}</span>
               <button onClick={handleLogout}>
                 <a href="./home">
                   <FontAwesomeIcon icon={faSignOutAlt} /> Log Out

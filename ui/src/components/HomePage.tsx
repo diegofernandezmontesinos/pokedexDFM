@@ -79,12 +79,11 @@ const HomePage: React.FC = () => {
         {favorites.size != 0 ? (
           <>
             <h3>See your favorites pokemon</h3>
-            <button
-              style={{ backgroundColor: "#007bff" }}
+            <button className="pokemon-item favorite"
               // onClick={() => seeFavoritesPokemon()}
             >
               {" "}
-              Clica aquí
+              Click here
             </button>
           </>
         ) : (
