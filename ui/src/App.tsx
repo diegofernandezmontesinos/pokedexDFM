@@ -31,41 +31,43 @@ import "@ionic/react/css/display.css";
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import "@ionic/react/css/palettes/dark.system.css";
 import "./theme/variables.css";
-import Favorites from "./pages/Favorites/Favorites";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import LogIn from "./components/LogIn/LogIn";
-import { SetStateAction } from "react";
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { SetStateAction, useState } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import FavoritesPage from "./pages/Favorites/Favorites";
 
 const queryClient = new QueryClient();
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <QueryClientProvider client={queryClient}>
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route exact path="/login">
-            <LogIn
-              setUser={function (value: SetStateAction<string[]>): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
-          </Route>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/favorites">
-            <Favorites />
-          </Route>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
-  </QueryClientProvider>
-);
-
+const App: React.FC = () => {
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  return (
+    <QueryClientProvider client={queryClient}>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+            <Route exact path="/login">
+              <LogIn
+                setUser={function (value: SetStateAction<string[]>): void {
+                  throw new Error("Function not implemented.");
+                }}
+              />
+            </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/pokedex">
+              <FavoritesPage favorites={favorites} />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </QueryClientProvider>
+  );
+};
 export default App;

@@ -1,13 +1,26 @@
-import React, { useState } from 'react'
-import Navbar from '../NavBar/NavBar'
+import React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../NavBar/NavBar";
 
-const Favorites: any = () => {
-  return (
-    <>
-    <Navbar />
-    <div>Favorites</div>
-    </>
-  )
+interface FavoritesPageProps {
+  favorites: Set<string>;
 }
 
-export default Favorites
+const FavoritesPage: React.FC<FavoritesPageProps> = ({ favorites }) => {
+  return (
+    <div>
+      <Navbar />
+      <h1>Favorites</h1>
+      <div className="pokemon-list">
+        {Array.from(favorites).map((name) => (
+          <div key={name} className="pokemon-item">
+            <h2>{name}</h2>
+          </div>
+        ))}
+      </div>
+      <Link to="/">Back to Home</Link>
+    </div>
+  );
+};
+
+export default FavoritesPage;

@@ -8,8 +8,7 @@ const HomePage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [filter, setFilter] = useState<string>("");
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
-  const [showFavorites, setShowFavorites] = useState(false);
-  const [loadNextPokemons, setLoadNextPokemons] = useState<number>(21);
+  const [loadNextPokemons, setLoadNextPokemons] = useState<number>(20);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
@@ -42,89 +41,60 @@ const HomePage: React.FC = () => {
       return newFavorites;
     });
   };
-  // const seeFavoritesPokemon = () => {
-  //   setShowFavorites(!showFavorites);
-  //   if (showFavorites) {
-  //     return (
-  //       <>
-  //         <div>prueba</div>
-  //       </>
-  //     );
-  //   }
-  // };
-
-  //const seeFavoritesPokemon = (e: React.ChangeEvent<>) => {
-  //**********************************revisar esto, puede que aqui este la solución
-  // const value = e.target.value;
-  // setFilter(value);
-  // setPokemonList(
-  //   pokemonList.filter((pokemon) =>
-  //     pokemon.name.toLowerCase() == favorites.has(name)
-  //   )
-  // );
-  //};
-
   return (
-    <div className="HomePage">
-      <Navbar />
-      <div>
-        <h1>Pokémon List</h1>
-        <input
-          type="text"
-          placeholder="Filter Pokémon"
-          value={filter}
-          onChange={handleFilterChange}
-        />
+    <body className="body-homepage">
+      <div className="HomePage">
+        <Navbar />
+        <div>
+          <h1>Pokémon List</h1>
+          <input
+            type="text"
+            placeholder="Filter Pokémon"
+            value={filter}
+            onChange={handleFilterChange}
+          />
 
-        {favorites.size != 0 ? (
-          <>
-            <h3>See your favorites pokemon</h3>
-            <button
-              className="pokemon-item favorite"
-              // onClick={() => seeFavoritesPokemon()}
-            >
-              {" "}
-              Click here
-            </button>
-          </>
-        ) : (
-          <></>
-        )}
-      </div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <div className="pokemon-list">
-            {filteredPokemonList.map((pokemon, index) => (
-              <PokemonItem
-                key={index}
-                name={pokemon.name}
-                url={pokemon.url}
-                isFavorite={favorites.has(pokemon.name)}
-                toggleFavorite={toggleFavorite}
-              />
-            ))}
-          </div>
-          {loadNextPokemons < 1320 ? (
-            <div className="showmore-buttons">
+          {favorites.size != 0 ? (
+            <>
+              <h3>See your favorites pokemon</h3>
               <button
-                onClick={() =>
-                  setLoadNextPokemons((prevCount) => prevCount + 100)
-                }
+                className="pokemon-item favorite"
+                // onClick={() => seeFavoritesPokemon()}
               >
-                Show 100 more
+                {" "}
+                Click here
               </button>
-              <button onClick={() => setLoadNextPokemons(1320)}>
-                Show all
-              </button>
-            </div>
+            </>
           ) : (
             <></>
           )}
-        </>
-      )}
-    </div>
+        </div>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <div className="pokemon-list">
+              {filteredPokemonList.map((pokemon, index) => (
+                <PokemonItem
+                  key={index}
+                  name={pokemon.name}
+                  url={pokemon.url}
+                  isFavorite={favorites.has(pokemon.name)}
+                  toggleFavorite={toggleFavorite}
+                />
+              ))}
+            </div>
+            <button
+              onClick={() =>
+                setLoadNextPokemons((prevCount) => prevCount + 100)
+              }
+            >
+              Show more
+            </button>
+          </>
+        )}
+      </div>
+    </body>
   );
 };
 

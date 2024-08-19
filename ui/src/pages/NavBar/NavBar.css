@@ -1,8 +1,7 @@
 .navbar {
-  /* background-color: #1a1a1a;  */
-  background-color: white; 
+  background-color: white;
   padding: 0px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-list {
@@ -10,34 +9,30 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-item a {
-  /* color: #fff;  */
-  color: black; 
+  color: black;
   text-align: center;
-  padding: 10px 15px; 
+  padding: 10px 15px;
   text-decoration: none;
   font-weight: 500;
-  font-size: medium; 
-  transition: background-color 0.3s, color 0.3s; 
+  font-size: medium;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
-
-/* .navbar-item a:hover {
-  background-color: #f0f0f0; 
-  color: #333; 
-} */
 
 .logIn {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .logIn span {
-  margin-right: 10px; 
-  color: black; 
+  margin-right: 10px;
+  color: black;
 }
 
 .navbar-item button {
@@ -46,13 +41,18 @@
   color: #fff;
   cursor: pointer;
   padding: 10px 15px;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-/* .navbar-item button:hover {
-  background-color: #f0f0f0; 
-  color: #333; 
-} */
+.pokedex-image {
+  width: 24px;
+}
+.pokedex a{
+  display: flex;
+  flex-direction: row;
+}
 
 .logo img {
   width: 30px;
