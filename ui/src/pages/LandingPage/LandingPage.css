@@ -1,13 +1,40 @@
+.landing-page {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  background-color: #ffcb05;
+  padding: 10px;
+  border-bottom: 5px solid #3b4cca;
+}
+
+.header h1 {
+  color: #3b4cca;
+  font-size: 2.5em;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .text-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   font-size: 50px;
+  color: #3b4cca;
 }
-p {
+
+.text-container p {
   width: 50vw;
   font-size: 30px;
-  color: white;
+  color: #3b4cca;
 }
 
 #image-container {
@@ -18,31 +45,42 @@ p {
 }
 
 .pokemon-image {
-  width: 45vw; 
+  width: 40vw; 
   height: auto; 
   border-radius: 15px; 
+  border: 5px solid #ffcb05;
 }
 
 .button-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3%;
 }
-.pokeball-icon{
-  margin-top: 6px;
-}
+
 .button-container p {
-  width: 30%;
+  width: 40%;
   font-size: 20px;
+  color: #3b4cca;
 }
 
 .button-container button {
-  color: black;
+  background-color: #3b4cca;
+  color: white;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin-top: 15px;
 }
-.button-container a {
+
+.button-container button a {
   color: white;
+  text-decoration: none;
 }
 
+.pokeball-icon {
+  width: 50px;
+  height: auto;
+  margin-top: 10px;
+}

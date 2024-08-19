@@ -7,21 +7,27 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <Navbar />
-      <div className="text-container">Welcome to your Pokedex App</div>
-      <div id="image-container">
-        <p>
+      <header className="header">
+        <h1>Welcome to your Pokedex App</h1>
+      </header>
+      <div className="main-content">
+        <div className="text-container">
+          <p>
           This is you Pokedex App, the place to search, found, and catch all
           your pokemons, like Ash, if you wan't to be the very best, you gotta catch 'em all.
-        </p>
-        <img
-          src={pokeball}
-          alt="Pokemones y Masterball"
-          className="pokemon-image"
-        />
+          </p>
+        </div>
+        <div className="image-container">
+          <img
+            src={pokeball}
+            alt="Pokemones y Masterball"
+            className="pokemon-image"
+          />
+        </div>
       </div>
       <div className="button-container">
         <p>To start your adventure, let's register first:</p>
-        <button>
+        <button className="register-button">
           <a href="./home">Click here to login</a>
         </button>
         <img src={pokeballIcon} alt="Pokemones" className="pokeball-icon" />

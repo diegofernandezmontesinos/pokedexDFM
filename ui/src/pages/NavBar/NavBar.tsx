@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignInAlt, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignInAlt, faSignOutAlt, faHome, faGamepad, faTv, faNewspaper, faTrophy, faStar } from "@fortawesome/free-solid-svg-icons";
 import { signOut } from "../../shares/apiService";
+import pokeball from '../../images/pokeball.png'
 
 const Navbar: React.FC = () => {
   const [user, setUser] = useState<{
@@ -31,14 +32,26 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
-        <li className="navbar-item">
-          <a href="/home">Home</a>
+        <li className="navbar-item logo">
+          <a href="/home">
+            <img src={pokeball} alt="Pokédex" />
+          </a>
         </li>
-        {user && (
-          <li className="navbar-item">
-            <a href="favorites">Favorites Pokemon</a>
-          </li>
-        )}
+        <li className="navbar-item">
+          <a href="/home">
+            <FontAwesomeIcon icon={faHome} /> Inicio
+          </a>
+        </li>
+        <li className="navbar-item">
+          <a href="/pokedex">
+            <FontAwesomeIcon icon={faStar} /> Pokédex
+          </a>
+        </li>
+        <li className="navbar-item">
+          <a href="/events">
+            <FontAwesomeIcon icon={faTrophy} /> Eventos de Play! Pokémon
+          </a>
+        </li>
         <li className="navbar-item logIn">
           {user ? (
             <>
