@@ -25,10 +25,10 @@
   transition: background-color 0.3s, color 0.3s; 
 }
 
-.navbar-item a:hover {
+/* .navbar-item a:hover {
   background-color: #f0f0f0; 
   color: #333; 
-}
+} */
 
 .logIn {
   display: flex;
@@ -37,11 +37,11 @@
 
 .logIn span {
   margin-right: 10px; 
-  color: #fff; 
+  color: black; 
 }
 
 .navbar-item button {
-  background-color: #1a1a1a;
+  background-color: #fff;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -49,10 +49,10 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.navbar-item button:hover {
+/* .navbar-item button:hover {
   background-color: #f0f0f0; 
   color: #333; 
-}
+} */
 
 .logo img {
   width: 30px;

@@ -9,16 +9,17 @@ const HomePage: React.FC = () => {
   const [filter, setFilter] = useState<string>("");
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [showFavorites, setShowFavorites] = useState(false);
+  const [loadNextPokemons, setLoadNextPokemons] = useState<number>(20);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=1302")
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
       .then((response) => response.json())
       .then((data) => {
         setPokemonList(data.results);
         setFilteredPokemonList(data.results);
         setLoading(false);
       });
-  }, []);
+  }, [loadNextPokemons]);
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toLowerCase();
@@ -41,7 +42,6 @@ const HomePage: React.FC = () => {
       return newFavorites;
     });
   };
-
   // const seeFavoritesPokemon = () => {
   //   setShowFavorites(!showFavorites);
   //   if (showFavorites) {
@@ -79,7 +79,8 @@ const HomePage: React.FC = () => {
         {favorites.size != 0 ? (
           <>
             <h3>See your favorites pokemon</h3>
-            <button className="pokemon-item favorite"
+            <button
+              className="pokemon-item favorite"
               // onClick={() => seeFavoritesPokemon()}
             >
               {" "}
@@ -93,17 +94,24 @@ const HomePage: React.FC = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="pokemon-list">
-          {filteredPokemonList.map((pokemon, index) => (
-            <PokemonItem
-              key={index}
-              name={pokemon.name}
-              url={pokemon.url}
-              isFavorite={favorites.has(pokemon.name)}
-              toggleFavorite={toggleFavorite}
-            />
-          ))}
-        </div>
+        <>
+          <div className="pokemon-list">
+            {filteredPokemonList.map((pokemon, index) => (
+              <PokemonItem
+                key={index}
+                name={pokemon.name}
+                url={pokemon.url}
+                isFavorite={favorites.has(pokemon.name)}
+                toggleFavorite={toggleFavorite}
+              />
+            ))}
+          </div>
+          <button
+            onClick={() => setLoadNextPokemons((prevCount) => prevCount + 100)}
+          >
+            Show more
+          </button>
+        </>
       )}
     </div>
   );

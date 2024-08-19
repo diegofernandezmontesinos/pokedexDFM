@@ -33,8 +33,8 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <ul className="navbar-list">
         <li className="navbar-item logo">
-          <a href="/home">
-            <img src={pokeball} alt="Pokédex" />
+          <a href="/">
+            <img src={pokeball} alt="Pokeball" />
           </a>
         </li>
         <li className="navbar-item">
