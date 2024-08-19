@@ -9,7 +9,7 @@ const HomePage: React.FC = () => {
   const [filter, setFilter] = useState<string>("");
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [showFavorites, setShowFavorites] = useState(false);
-  const [loadNextPokemons, setLoadNextPokemons] = useState<number>(20);
+  const [loadNextPokemons, setLoadNextPokemons] = useState<number>(21);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
@@ -106,11 +106,22 @@ const HomePage: React.FC = () => {
               />
             ))}
           </div>
-          <button
-            onClick={() => setLoadNextPokemons((prevCount) => prevCount + 100)}
-          >
-            Show more
-          </button>
+          {loadNextPokemons < 1320 ? (
+            <div className="showmore-buttons">
+              <button
+                onClick={() =>
+                  setLoadNextPokemons((prevCount) => prevCount + 100)
+                }
+              >
+                Show 100 more
+              </button>
+              <button onClick={() => setLoadNextPokemons(1320)}>
+                Show all
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
         </>
       )}
     </div>
