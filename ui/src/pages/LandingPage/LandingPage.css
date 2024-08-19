@@ -3,6 +3,8 @@
   background-color: #f2f2f2;
   text-align: center;
   padding: 20px;
+  min-height: 100vh;
+  overflow-y: scroll;
 }
 
 .header {
@@ -83,4 +85,56 @@
   width: 50px;
   height: auto;
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .text-container {
+    font-size: 30px;
+  }
+
+  .text-container p {
+    width: 80vw;
+    font-size: 20px;
+  }
+
+  .pokemon-image {
+    width: 70vw;
+  }
+
+  .button-container p {
+    width: 80%;
+    font-size: 18px;
+  }
+
+  .button-container button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8em;
+  }
+
+  .text-container {
+    font-size: 25px;
+  }
+
+  .text-container p {
+    width: 90vw;
+    font-size: 18px;
+  }
+
+  .pokemon-image {
+    width: 80vw;
+  }
+
+  .button-container p {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .button-container button {
+    padding: 6px 12px;
+  }
 }
