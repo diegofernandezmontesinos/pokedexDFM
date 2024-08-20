@@ -22,6 +22,15 @@ const HomePage: React.FC = () => {
       });
   }, [loadNextPokemons]);
 
+  const sendFavorites = async () => {
+    try {
+      console.log("Favorite saved:", favoritesArray);
+      const response = await sendPokemonFavorites(favoritesArray);
+      console.log("Favorite saved:", response);
+    } catch (error) {
+      console.error("Error saving favorite:", error);
+    }
+  }
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toLowerCase();
     setFilter(value);
@@ -45,14 +54,10 @@ const HomePage: React.FC = () => {
       setFavoritesArray(updatedFavoritesArray);
       return newFavorites;
     });
-
-    try {
-      const response = await favorite("your_favorite_item");
-      console.log("Favorite saved:", response);
-    } catch (error) {
-      console.error("Error saving favorite:", error);
-    }
   };
+  useEffect(() => {
+    sendFavorites();
+  }, [favoritesArray]);
   return (
     <div className="body-homepage">
       <div className="HomePage">

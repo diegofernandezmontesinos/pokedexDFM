@@ -17,6 +17,20 @@ class StorageService:
         if key in self.storage:
             del self.storage[key]
 
+class favorites:
+    def __init__(self):
+        self.favorites = {}
+
+    def set_item(self, key, value):
+        self.favorites[key] = value
+
+    def get_item(self, key):
+        return self.favorites.get(key)
+
+    def remove_item(self, key):
+        if key in self.favorites:
+            del self.favorites[key]
+
 class UserService:
     def __init__(self, storage_service):
         self.storage_service = storage_service
@@ -64,7 +78,7 @@ def get_pokemon(id):
 if __name__ == '__main__':
     app.run(port=3000)
 
-favorites_storage = []
+favorites_storage = favorites()
 
 @app.route('/favorites', methods=['POST'])
 def save_favorites():
