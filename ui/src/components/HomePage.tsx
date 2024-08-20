@@ -12,43 +12,14 @@ const HomePage: React.FC = () => {
   const [loadNextPokemons, setLoadNextPokemons] = useState<number>(20);
   const [favoritesArray, setFavoritesArray] = useState<string[]>([]);
 
-  // useEffect(() => {
-  //   fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setPokemonList(data.results);
-  //       setFilteredPokemonList(data.results);
-  //       setLoading(false);
-  //     });
-  // }, [loadNextPokemons]);
   useEffect(() => {
-    const fetchPokemonDetails = async (url: string) => {
-      const response = await fetch(url);
-      const data = await response.json();
-      return {
-        name: data.name,
-        url: data.url,
-        types: data.types,
-        abilities: data.abilities,
-      };
-    };
-
-    const fetchPokemons = async () => {
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`
-      );
-      const data = await response.json();
-      const detailedPokemonList = await Promise.all(
-        data.results.map((pokemon: { url: string }) =>
-          fetchPokemonDetails(pokemon.url)
-        )
-      );
-      setPokemonList(detailedPokemonList);
-      setFilteredPokemonList(detailedPokemonList);
-      setLoading(false);
-    };
-
-    fetchPokemons();
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemonList(data.results);
+        setFilteredPokemonList(data.results);
+        setLoading(false);
+      });
   }, [loadNextPokemons]);
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,10 +91,10 @@ const HomePage: React.FC = () => {
                   key={index}
                   name={pokemon.name}
                   url={pokemon.url}
-                  types={[]}
-                  abilities={[]}
                   isFavorite={favorites.has(pokemon.name)}
                   toggleFavorite={toggleFavorite}
+                  types={[]}
+                  abilities={[]}
                 />
               ))}
             </div>
