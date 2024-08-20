@@ -1,7 +1,8 @@
 .body-homepage{
-  background-color: black !important;
+  background-color: #008000f7 !important;
   background-image: none !important;
   overflow-y: scroll;
+  height: inherit;
 }
 
 .HomePage {
@@ -64,4 +65,7 @@
 
 .pokemon-item h2 {
   font-size: 1.2rem;
+}
+.pokemon-item p{
+  color: white;
 }

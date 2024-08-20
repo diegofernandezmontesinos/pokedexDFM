@@ -1,15 +1,19 @@
 interface Pokemon {
-    name: string;
-    url: string;
-  }
-  
-  interface PokemonData {
-    sprites: {
-      front_default: string;
-    };
-  }
+  name: string;
+  url: string;
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+}
+
+interface PokemonData {
+  sprites: {
+    front_default: string;
+  };
+  types: { type: { name: string } }[];
+  abilities: { ability: { name: string } }[];
+}
 
 interface PokemonItemProps extends Pokemon {
-    isFavorite: boolean;
-    toggleFavorite: (name: string) => void;
-  }
+  isFavorite: boolean;
+  toggleFavorite: (name: string) => void;
+}

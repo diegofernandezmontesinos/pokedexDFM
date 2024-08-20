@@ -12,14 +12,43 @@ const HomePage: React.FC = () => {
   const [loadNextPokemons, setLoadNextPokemons] = useState<number>(20);
   const [favoritesArray, setFavoritesArray] = useState<string[]>([]);
 
+  // useEffect(() => {
+  //   fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setPokemonList(data.results);
+  //       setFilteredPokemonList(data.results);
+  //       setLoading(false);
+  //     });
+  // }, [loadNextPokemons]);
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPokemonList(data.results);
-        setFilteredPokemonList(data.results);
-        setLoading(false);
-      });
+    const fetchPokemonDetails = async (url: string) => {
+      const response = await fetch(url);
+      const data = await response.json();
+      return {
+        name: data.name,
+        url: data.url,
+        types: data.types,
+        abilities: data.abilities,
+      };
+    };
+
+    const fetchPokemons = async () => {
+      const response = await fetch(
+        `https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`
+      );
+      const data = await response.json();
+      const detailedPokemonList = await Promise.all(
+        data.results.map((pokemon: { url: string }) =>
+          fetchPokemonDetails(pokemon.url)
+        )
+      );
+      setPokemonList(detailedPokemonList);
+      setFilteredPokemonList(detailedPokemonList);
+      setLoading(false);
+    };
+
+    fetchPokemons();
   }, [loadNextPokemons]);
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,11 +76,11 @@ const HomePage: React.FC = () => {
     });
 
     try {
-      const response = await favorite('your_favorite_item');
+      const response = await favorite("your_favorite_item");
       console.log("Favorite saved:", response);
-  } catch (error) {
+    } catch (error) {
       console.error("Error saving favorite:", error);
-  }
+    }
   };
   return (
     <div className="body-homepage">
@@ -91,6 +120,8 @@ const HomePage: React.FC = () => {
                   key={index}
                   name={pokemon.name}
                   url={pokemon.url}
+                  types={[]}
+                  abilities={[]}
                   isFavorite={favorites.has(pokemon.name)}
                   toggleFavorite={toggleFavorite}
                 />
@@ -133,7 +164,18 @@ const PokemonItem: React.FC<PokemonItemProps> = ({
     <div className="pokemon-item">
       <h2>{name}</h2>
       {pokemonData && (
-        <img src={pokemonData.sprites.front_default} alt={name} />
+        <>
+          <img src={pokemonData.sprites.front_default} alt={name} />
+          <p>
+            Types: {pokemonData.types.map((type) => type.type.name).join(", ")}
+          </p>
+          <p>
+            Abilities:{" "}
+            {pokemonData.abilities
+              .map((ability) => ability.ability.name)
+              .join(", ")}
+          </p>
+        </>
       )}
       <button onClick={() => toggleFavorite(name)}>
         {isFavorite ? "Unfavorite" : "Favorite"}
