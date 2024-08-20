@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignInAlt, faSignOutAlt, faHome, faGamepad, faTv, faNewspaper, faTrophy, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSignInAlt,
+  faSignOutAlt,
+  faHome,
+  faGamepad,
+  faTv,
+  faNewspaper,
+  faTrophy,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 import { signOut } from "../../shares/apiService";
-import pokeball from '../../images/pokeball.png';
-import pokedex from '../../images/pokedex.svg';
+import pokeball from "../../images/pokeball.png";
+import pokedex from "../../images/pokedex.svg";
 
 const Navbar: React.FC = () => {
   const [user, setUser] = useState<{
@@ -43,11 +52,14 @@ const Navbar: React.FC = () => {
             <FontAwesomeIcon icon={faHome} /> Inicio
           </a>
         </li>
-        <li className="navbar-item pokedex">
-          <a href="/pokedex">
-          <img className="pokedex-image"src={pokedex} alt="Pokedex" /> Pokédex
-          </a>
-        </li>
+        {user && (
+          <li className="navbar-item pokedex">
+            <a href="/pokedex">
+              <img className="pokedex-image" src={pokedex} alt="Pokedex" />{" "}
+              Pokédex
+            </a>
+          </li>
+        )}
         <li className="navbar-item">
           <a href="/CVDiegoFernandez">
             <FontAwesomeIcon icon={faTrophy} /> About the author.
