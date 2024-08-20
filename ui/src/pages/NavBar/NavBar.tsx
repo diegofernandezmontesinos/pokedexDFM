@@ -47,14 +47,9 @@ const Navbar: React.FC = () => {
             <img src={pokeball} alt="Pokeball" />
           </a>
         </li>
-        <li className="navbar-item">
-          <a href="/home">
-            <FontAwesomeIcon icon={faHome} /> Inicio
-          </a>
-        </li>
         {user && (
           <li className="navbar-item pokedex">
-            <a href="/pokedex">
+            <a href="/home">
               <img className="pokedex-image" src={pokedex} alt="Pokedex" />{" "}
               Pokédex
             </a>

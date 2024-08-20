@@ -3,6 +3,7 @@
   background-image: none !important;
   overflow-y: scroll;
   height: inherit;
+  width: 100vw;
 }
 
 .HomePage {

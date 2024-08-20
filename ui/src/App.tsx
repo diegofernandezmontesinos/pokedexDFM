@@ -35,7 +35,6 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import LogIn from "./components/LogIn/LogIn";
 import { SetStateAction, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import FavoritesPage from "./pages/Favorites/Favorites";
 import Author from "./pages/Author/Author";
 
 const queryClient = new QueryClient();
@@ -62,9 +61,6 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/home">
               <Home />
-            </Route>
-            <Route exact path="/pokedex">
-              <FavoritesPage favorites={favorites} />
             </Route>
             <Route exact path="/CVDiegoFernandez">
               <Author />

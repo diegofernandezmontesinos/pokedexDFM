@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import Navbar from "../pages/NavBar/NavBar";
-import { favorite, sendPokemonFavorites } from "../shares/apiService";
+import { sendPokemonFavorites } from "../shares/apiService";
 
 const HomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
     } catch (error) {
       console.error("Error saving favorite:", error);
     }
-  }
+  };
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toLowerCase();
     setFilter(value);
@@ -55,6 +55,16 @@ const HomePage: React.FC = () => {
       return newFavorites;
     });
   };
+  const filterFavorites = () => {
+    setFilteredPokemonList(
+      pokemonList.filter((pokemon) => favorites.has(pokemon.name))
+    );
+  };
+
+  const favoriteFilter = () => {
+    filterFavorites();
+  };
+
   useEffect(() => {
     sendFavorites();
   }, [favoritesArray]);
@@ -76,7 +86,7 @@ const HomePage: React.FC = () => {
               <h3>See your favorites pokemon</h3>
               <button
                 className="pokemon-item favorite"
-                // onClick={() => seeFavoritesPokemon()}
+                onClick={favoriteFilter}
               >
                 {" "}
                 Click here
@@ -137,7 +147,7 @@ const PokemonItem: React.FC<PokemonItemProps> = ({
   }, [url]);
 
   return (
-    <div className="pokemon-item">
+    <div className={`pokemon-item ${isFavorite ? "favorite" : ""}`}>
       <h2>{name}</h2>
       {pokemonData && (
         <>
