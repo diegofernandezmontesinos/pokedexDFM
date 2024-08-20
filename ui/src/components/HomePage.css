@@ -1,6 +1,7 @@
 .body-homepage{
   background-color: black !important;
   background-image: none !important;
+  overflow-y: scroll;
 }
 
 .HomePage {
@@ -27,12 +28,12 @@
   padding: 0px !important;
 }
 
-.showmore-buttons{
+.show-more-buttons{
   display: flex;
   justify-content: center;
   gap: 15px;
 }
-.showmore-buttons button {
+.show-more-buttons button {
   margin-top: 10px;
   padding: 5px 10px;
   border: none;

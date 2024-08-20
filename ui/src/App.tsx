@@ -36,12 +36,14 @@ import LogIn from "./components/LogIn/LogIn";
 import { SetStateAction, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import FavoritesPage from "./pages/Favorites/Favorites";
+import Author from "./pages/Author/Author";
 
 const queryClient = new QueryClient();
 
 setupIonicReact();
 
 const App: React.FC = () => {
+  
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   return (
     <QueryClientProvider client={queryClient}>
@@ -64,7 +66,10 @@ const App: React.FC = () => {
             <Route exact path="/pokedex">
               <FavoritesPage favorites={favorites} />
             </Route>
-          </IonRouterOutlet>
+            <Route exact path="/CVDiegoFernandez">
+              <Author />
+            </Route>
+          </IonRouterOutlet> 
         </IonReactRouter>
       </IonApp>
     </QueryClientProvider>

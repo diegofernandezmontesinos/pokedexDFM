@@ -63,3 +63,28 @@ def get_pokemon(id):
 
 if __name__ == '__main__':
     app.run(port=3000)
+
+favorites_storage = []
+
+@app.route('/favorites', methods=['POST'])
+def save_favorites():
+    global favorites_storage
+    favorites = request.json.get('favorites', [])
+    favorites_storage = favorites
+    return jsonify({'message': 'Favoritos guardados'}), 200
+
+@app.route('/favorites', methods=['GET'])
+def get_favorites():
+    return jsonify({'favorites': favorites_storage}), 200
+
+@app.route('/favorite', methods=['POST'])
+def favorite():
+    favorite_item = request.json.get('favorite')
+    if favorite_item:
+        favorites_storage.append(favorite_item)
+        return jsonify({'message': 'Favorito guardado'}), 200
+    else:
+        return jsonify({'message': 'No se proporcionó ningún favorito'}), 400
+
+if __name__ == '__main__':
+    app.run(debug=True)

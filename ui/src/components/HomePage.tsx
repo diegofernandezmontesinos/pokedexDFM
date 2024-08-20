@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import Navbar from "../pages/NavBar/NavBar";
+import { favorite, sendPokemonFavorites } from "../shares/apiService";
 
 const HomePage: React.FC = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
@@ -9,6 +10,7 @@ const HomePage: React.FC = () => {
   const [filter, setFilter] = useState<string>("");
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [loadNextPokemons, setLoadNextPokemons] = useState<number>(20);
+  const [favoritesArray, setFavoritesArray] = useState<string[]>([]);
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${loadNextPokemons}`)
@@ -30,7 +32,7 @@ const HomePage: React.FC = () => {
     );
   };
 
-  const toggleFavorite = (name: string) => {
+  const toggleFavorite = async (name: string) => {
     setFavorites((prevFavorites) => {
       const newFavorites = new Set(prevFavorites);
       if (newFavorites.has(name)) {
@@ -38,11 +40,21 @@ const HomePage: React.FC = () => {
       } else {
         newFavorites.add(name);
       }
+      // Actualiza el array de favoritos
+      const updatedFavoritesArray = Array.from(newFavorites);
+      setFavoritesArray(updatedFavoritesArray);
       return newFavorites;
     });
+
+    try {
+      const response = await favorite('your_favorite_item');
+      console.log("Favorite saved:", response);
+  } catch (error) {
+      console.error("Error saving favorite:", error);
+  }
   };
   return (
-    <body className="body-homepage">
+    <div className="body-homepage">
       <div className="HomePage">
         <Navbar />
         <div>
@@ -84,17 +96,22 @@ const HomePage: React.FC = () => {
                 />
               ))}
             </div>
-            <button
-              onClick={() =>
-                setLoadNextPokemons((prevCount) => prevCount + 100)
-              }
-            >
-              Show more
-            </button>
+            <div className="show-more-buttons">
+              <button
+                onClick={() =>
+                  setLoadNextPokemons((prevCount) => prevCount + 100)
+                }
+              >
+                Show more
+              </button>
+              <button onClick={() => setLoadNextPokemons(1302)}>
+                Show all
+              </button>
+            </div>
           </>
         )}
       </div>
-    </body>
+    </div>
   );
 };
 

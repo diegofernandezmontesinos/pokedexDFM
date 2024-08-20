@@ -49,8 +49,8 @@ const Navbar: React.FC = () => {
           </a>
         </li>
         <li className="navbar-item">
-          <a href="/events">
-            <FontAwesomeIcon icon={faTrophy} /> Eventos de Play! Pokémon
+          <a href="/CVDiegoFernandez">
+            <FontAwesomeIcon icon={faTrophy} /> About the author.
           </a>
         </li>
         <li className="navbar-item logIn">

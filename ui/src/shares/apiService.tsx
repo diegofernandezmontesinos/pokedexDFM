@@ -21,3 +21,18 @@ export const getPokemon = async (id: number) => {
   const response = await axios.get(`${API_URL}/pokemon/${id}`);
   return response.data;
 };
+
+export const getPokemonFavorites = async () => {
+  const response = await axios.get(`${API_URL}/favorites`);
+  return response.data;
+};
+
+export const sendPokemonFavorites = async (favorites: any) => {
+  const response = await axios.post(`${API_URL}/favorites`, { favorites });
+  return response.data;
+};
+
+export const favorite = async (favoriteItem: any) => {
+  const response = await axios.post(`${API_URL}/favorite`, { favorite: favoriteItem });
+  return response.data;
+};
