@@ -42,18 +42,27 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
-        <li className="navbar-item logo">
+        <li className="navbar-item pokedex">
           <a href="/">
             <img src={pokeball} alt="Pokeball" />
+            Home
           </a>
         </li>
         {user && (
-          <li className="navbar-item pokedex">
-            <a href="/home">
-              <img className="pokedex-image" src={pokedex} alt="Pokedex" />{" "}
-              Pokédex
-            </a>
-          </li>
+          <>
+            <li className="navbar-item pokedex">
+              <a href="/home">
+                <img className="pokedex-image" src={pokedex} alt="Pokedex" />{" "}
+                Pokédex
+              </a>
+            </li>
+            <li className="navbar-item pokedex">
+              <a href="/pokemon">
+                <img className="pokedex-image" src={pokedex} alt="Pokedex" />{" "}
+                Custom Pokémon
+              </a>
+            </li>
+          </>
         )}
         <li className="navbar-item">
           <a href="/CVDiegoFernandez">
