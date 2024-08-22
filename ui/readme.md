@@ -6,13 +6,15 @@ This is the info that user will need to start project:
         selec react as framework-library
     
 2. **Adding PandaCSS**: 
-    npm install @PandaCss/dev
+    npm install -D @pandacss/dev
+    npx panda init
     
 3. **Dependecies**:
     React Query 
     React Router Dom 
     Flask
     PandaCss
+    Fortawesome (npm install @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome)
 
 4. **Clon repo from github**:
     The repo is ubicated in github, this is the route:
