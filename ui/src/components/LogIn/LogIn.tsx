@@ -14,7 +14,6 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Validación del nombre de usuario
     if (nombre.length < 4 || nombre.length > 10) {
       setError("El nombre de usuario debe tener entre 4 y 10 caracteres.");
       return;
