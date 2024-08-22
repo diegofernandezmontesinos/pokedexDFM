@@ -2,6 +2,7 @@ import Navbar from "../NavBar/NavBar";
 import "./LandingPage.css";
 import pokeball from "../../images/images.jpeg";
 import pokeballIcon from "../../images/pokeball.png";
+import logo from "../../images/logo.svg";
 import { useEffect, useState } from "react";
 
 const LandingPage = () => {
@@ -26,6 +27,7 @@ const LandingPage = () => {
             your pokemons, like Ash, if you wan't to be the very best, you gotta
             catch 'em all.
           </p>
+          <img src={logo} alt="Pokemon logol" className="pokemon-image" />
         </div>
         <div className="image-container">
           <img

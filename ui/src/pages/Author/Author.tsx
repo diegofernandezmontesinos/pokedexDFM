@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../NavBar/NavBar";
 import "./Author.css";
 import snorlax from "../../images/snorlax.svg";
+import linkedin from "../../images/linkedin.svg";
+import github from "../../images/github.svg";
 
 const Author = () => {
   return (
@@ -39,18 +41,22 @@ const Author = () => {
             </p>
           </p>
         </p>
-        <p>
-          If you want to know more about me, go to my LinkedIn profile:
-          <a href="https://www.linkedin.com/in/diego-fernandez-montesinos/">
-            Click Here
-          </a>
-        </p>
-        <p>
-          Do you want to see my portfolio? Let's go to GitHub:
-          <a href="https://github.com/diegofernandezmontesinos">
-            Click Here 
-          </a>
-        </p>
+        <div className="profile-links-container">
+          <img src={linkedin} />
+          <p>
+            If you want to know more about me, go to my LinkedIn profile:
+            <a href="https://www.linkedin.com/in/diego-fernandez-montesinos/">
+              Click Here
+            </a>
+          </p>
+        </div>
+        <div className="profile-links-container">
+          <img src={github} />
+          <p>
+            Do you want to see my portfolio? Let's go to GitHub:
+            <a href="https://github.com/diegofernandezmontesinos">Click Here</a>
+          </p>
+        </div>
         <img src={snorlax} alt="snorlax" />
         <Link to="/home">Back to Home</Link>
       </div>

@@ -1,5 +1,4 @@
 .body-homepage{
-  /* background-color: #008000f7 !important; */
   background-color: #1a1a1a !important;
   background-image: none !important;
   overflow-y: scroll;
@@ -10,6 +9,9 @@
 .HomePage {
   text-align: center;
   overflow: scroll;
+}
+.HomePage p{
+  color: #ccc;
 }
 
 .pokemon-list {

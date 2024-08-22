@@ -28,6 +28,8 @@
 .text-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-top: 20px;
   font-size: 50px;
   color: #3b4cca;
@@ -35,8 +37,12 @@
 
 .text-container p {
   width: 50vw;
-  font-size: 30px;
+  font-size: 25px;
   color: #3b4cca;
+}
+.text-container img{
+  width: 15vw;
+  border: none;
 }
 
 #image-container {
@@ -44,6 +50,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 5%;
+  margin-left: 5%;
 }
 
 .pokemon-image {

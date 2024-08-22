@@ -74,6 +74,7 @@ const HomePage: React.FC = () => {
         <Navbar />
         <div>
           <h1>Pokémon List</h1>
+          <p>Search your pokemons and watch their abilities and types</p>
           <input
             type="text"
             placeholder="Filter Pokémon"
