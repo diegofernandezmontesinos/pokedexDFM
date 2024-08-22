@@ -1,6 +1,6 @@
 This is the info that user will need to start project:
 
-1. **Install IONIC*:
+1. **Install IONIC**:
     in ther terminal, write: 
         ionic start <nameOfTheApp> 
         selec react as framework-library
@@ -21,12 +21,15 @@ This is the info that user will need to start project:
 5. **Production Deploy**:
     This is the url for the production deploy     
 
+6. **Port info**:
+    Make shure that your localhost is using port 8100, so avoid issues with the apiService component.
 
 
-//ToDo.
-FYI:
+**FYI**:
 
 This app was created by Diego Fernández Montesinos, css was used, however I was trying to apply pandaCss but an issue happens doing it, same thing with React Query, I tried to fix it, however it was really complicated.
 
-The app include a LandingPage, that give you a warming welcome and a login button, in the navbar user can find the pokedex, Home, login, and Infor about the author, each tab goes to a different page.
-    
+The app include a LandingPage, that give you a warming welcome and a login button, in the navbar user can find the pokedex, Home, login, and Info about the author, each tab goes to differents pages.
+
+The project use python in the backend and React library with typescript in the frontend.  
+

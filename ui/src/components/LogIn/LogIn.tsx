@@ -20,7 +20,6 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
       return;
     }
 
-    // Validación de la contraseña
     const contraseñaRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,}$/;
     if (!contraseñaRegex.test(contraseña)) {
       setError(
@@ -71,7 +70,7 @@ const LogIn: React.FC<LogInProps> = ({ setUser }) => {
             placeholder="Contraseña"
           />
         </div>
-        <button onClick={() => handleLogin(nombre)}>LogIn</button>
+        <button onClick={() => handleLogin(nombre)}>Log In</button>
       </form>
       {error && <p>{error}</p>}
     </section>
